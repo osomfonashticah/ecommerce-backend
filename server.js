@@ -7,10 +7,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 require("./connection");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server, {
-  cors: "https://ecommerce-7ffe7.web.app/",
-  methods: ["GET", "POST", "PATCH", "DELETE"],
-});
+const io = new Server(server);
 
 const User = require("./models/User");
 const userRoutes = require("./routes/userRoutes");
